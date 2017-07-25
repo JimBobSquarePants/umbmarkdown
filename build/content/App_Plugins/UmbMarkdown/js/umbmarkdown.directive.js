@@ -1,8 +1,26 @@
 ﻿angular.module("umbraco.directives").directive("umbMarkdown",
     function () {
+        var featureTest = function (property, value, noPrefixes) {
+            // Thanks Modernizr! https://github.com/phistuck/Modernizr/commit/3fb7217f5f8274e2f11fe6cfeda7cfaf9948a1f5
+            var prop = property + ":",
+                el = document.createElement("test"),
+                mStyle = el.style;
+
+            if (!noPrefixes) {
+                mStyle.cssText = prop + ["-webkit-", "-moz-", "-ms-", "-o-", ""].join(value + ";" + prop) + value + ";";
+            } else {
+                mStyle.cssText = prop + value;
+            }
+            return mStyle[property].indexOf(value) !== -1;
+        };
+
         var link = function ($scope, elem) {
 
             var textarea = elem.find("textarea")[0];
+
+            if (!featureTest("position", "sticky")) {
+                textarea.className += " nostick";
+            }
 
             // There's a race condition going on here. The editor is initializing before ngBind has kicked in.
             // To workaround it we set the value to match the model value before we initialize the editor.

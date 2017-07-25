@@ -35,7 +35,7 @@
         <file src="build\content\App_Plugins\UmbMarkdown\js\umbmarkdown.controller.js" target="Content\App_Plugins\UmbMarkdown\js\umbmarkdown.controller.js" />
         <file src="build\content\App_Plugins\UmbMarkdown\js\umbmarkdown.directive.js" target="Content\App_Plugins\UmbMarkdown\js\umbmarkdown.directive.js" />
         <file src="build\content\App_Plugins\UmbMarkdown\views\umbmarkdown.directive.html" target="Content\App_Plugins\UmbMarkdown\views\umbmarkdown.directive.html" />
-        <file src="build\content\App_Plugins\UmbMarkdown\views\umbmarkdown.directive.html" target="Content\App_Plugins\UmbMarkdown\views\umbmarkdown.html" />
+        <file src="build\content\App_Plugins\UmbMarkdown\views\umbmarkdown.html" target="Content\App_Plugins\UmbMarkdown\views\umbmarkdown.html" />
         <file src="build\content\App_Plugins\UmbMarkdown\package.manifest" target="Content\App_Plugins\UmbMarkdown\package.manifest" />
     </files>
 </package>
