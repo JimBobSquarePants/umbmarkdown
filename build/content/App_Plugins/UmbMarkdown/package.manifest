@@ -1,0 +1,24 @@
+﻿{
+  "propertyEditors": [
+    {
+      "alias": "UmbMarkdown.MarkDownEditor",
+      "name": "UmbMarkdown",
+      "editor": {
+        "view": "~/App_Plugins/UmbMarkdown/views/umbmarkdown.html",
+        "valueType": "TEXT"
+      }
+    }
+  ],
+  "javascript": [
+    "~/App_Plugins/UmbMarkdown/js/highlight.min.js",
+    "~/App_Plugins/UmbMarkdown/js/simplemde.min.js",
+    "~/App_Plugins/UmbMarkdown/js/umbmarkdown.controller.js",
+    "~/App_Plugins/UmbMarkdown/js/umbmarkdown.directive.js"
+  ],
+  "css": [
+    "~/App_Plugins/UmbMarkdown/css/font-awesome.min.css",
+    "~/App_Plugins/UmbMarkdown/css/simplemde.min.css",
+    "~/App_Plugins/UmbMarkdown/css/github.min.css",
+    "~/App_Plugins/UmbMarkdown/css/umbmarkdown.css"
+  ]
+}

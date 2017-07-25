@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<package >
+    <metadata>
+        <id>UmbMarkdown</id>
+        <version>$version$</version>
+        <title>UmbMarkdown</title>
+        <authors>James Jackson-South and Contributors</authors>
+        <owners>James Jackson-South</owners>
+        <iconUrl>https://raw.githubusercontent.com/JimBobSquarePants/UmbMarkdown/develop/build/assets/logo/umbmarkdown-64.png</iconUrl>
+        <projectUrl>https://github.com/JimBobSquarePants/UmbMarkdown</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>A fancy Markdown editor for Umbraco.</description>
+        <releaseNotes>See the Github release for notes.</releaseNotes>
+        <copyright>Copyright © 2017</copyright>
+        <tags>Umbraco</tags>
+        <dependencies>
+            <dependency id="UmbracoCms.Core" version="7.5.0" />
+            <dependency id="Markdig" version="0.12.3" />
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="src\UmbMarkdown\bin\Release\UmbMarkdown.dll" target="lib\net452" />
+        <file src="build\content\App_Plugins\UmbMarkdown\css\font-awesome.min.css" target="Content\App_Plugins\UmbMarkdown\css\font-awesome.min.css" />
+        <file src="build\content\App_Plugins\UmbMarkdown\css\github.min.css" target="Content\App_Plugins\UmbMarkdown\css\github.min.css" />
+        <file src="build\content\App_Plugins\UmbMarkdown\css\simplemde.min.css" target="Content\App_Plugins\UmbMarkdown\css\simplemde.min.css" />
+        <file src="build\content\App_Plugins\UmbMarkdown\css\umbmarkdown.css" target="Content\App_Plugins\UmbMarkdown\css\umbmarkdown.css" />
+        <file src="build\content\App_Plugins\UmbMarkdown\fonts\FontAwesome.otf" target="Content\App_Plugins\UmbMarkdown\fonts\FontAwesome.otf" />
+        <file src="build\content\App_Plugins\UmbMarkdown\fonts\fontawesome-webfont.eot" target="Content\App_Plugins\UmbMarkdown\fonts\fontawesome-webfont.eot" />
+        <file src="build\content\App_Plugins\UmbMarkdown\fonts\fontawesome-webfont.svg" target="Content\App_Plugins\UmbMarkdown\fonts\fontawesome-webfont.svg" />
+        <file src="build\content\App_Plugins\UmbMarkdown\fonts\fontawesome-webfont.ttf" target="Content\App_Plugins\UmbMarkdown\fonts\fontawesome-webfont.ttf" />
+        <file src="build\content\App_Plugins\UmbMarkdown\fonts\fontawesome-webfont.woff" target="Content\App_Plugins\UmbMarkdown\fonts\fontawesome-webfont.woff" />
+        <file src="build\content\App_Plugins\UmbMarkdown\fonts\fontawesome-webfont.woff2" target="Content\App_Plugins\UmbMarkdown\fonts\fontawesome-webfont.woff2" />
+        <file src="build\content\App_Plugins\UmbMarkdown\js\highlight.min.js" target="Content\App_Plugins\UmbMarkdown\js\highlight.min.js" />
+        <file src="build\content\App_Plugins\UmbMarkdown\js\simplemde.min.js" target="Content\App_Plugins\UmbMarkdown\js\simplemde.min.js" />
+        <file src="build\content\App_Plugins\UmbMarkdown\js\umbmarkdown.controller.js" target="Content\App_Plugins\UmbMarkdown\js\umbmarkdown.controller.js" />
+        <file src="build\content\App_Plugins\UmbMarkdown\js\umbmarkdown.directive.js" target="Content\App_Plugins\UmbMarkdown\js\umbmarkdown.directive.js" />
+        <file src="build\content\App_Plugins\UmbMarkdown\views\umbmarkdown.directive.html" target="Content\App_Plugins\UmbMarkdown\views\umbmarkdown.directive.html" />
+        <file src="build\content\App_Plugins\UmbMarkdown\views\umbmarkdown.directive.html" target="Content\App_Plugins\UmbMarkdown\views\umbmarkdown.html" />
+        <file src="build\content\App_Plugins\UmbMarkdown\package.manifest" target="Content\App_Plugins\UmbMarkdown\package.manifest" />
+    </files>
+</package>

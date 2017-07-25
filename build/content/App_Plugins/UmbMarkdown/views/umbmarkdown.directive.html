@@ -1,0 +1,15 @@
+﻿<div class="umbmarkdown">
+    <textarea ng-model="model.value"></textarea>
+
+    <umb-overlay ng-if="linkPickerOverlay.show"
+                 model="linkPickerOverlay"
+                 view="linkPickerOverlay.view"
+                 position="right">
+    </umb-overlay>
+
+    <umb-overlay ng-if="mediaPickerOverlay.show"
+                 model="mediaPickerOverlay"
+                 position="right"
+                 view="mediaPickerOverlay.view">
+    </umb-overlay>
+</div>

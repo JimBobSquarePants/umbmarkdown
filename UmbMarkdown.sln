@@ -1,0 +1,70 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UmbMarkdown", "src\UmbMarkdown\UmbMarkdown.csproj", "{B7BEE649-4637-496C-930A-5C7575F84085}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugin", "Plugin", "{95F19912-24D4-4FEE-9EC6-DF3BFC70CAED}"
+	ProjectSection(SolutionItems) = preProject
+		build\content\App_Plugins\UmbMarkdown\package.manifest = build\content\App_Plugins\UmbMarkdown\package.manifest
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "css", "css", "{904F119F-86C2-4FBA-AE57-1D14EC1D5704}"
+	ProjectSection(SolutionItems) = preProject
+		build\content\App_Plugins\UmbMarkdown\css\font-awesome.min.css = build\content\App_Plugins\UmbMarkdown\css\font-awesome.min.css
+		build\content\App_Plugins\UmbMarkdown\css\github.min.css = build\content\App_Plugins\UmbMarkdown\css\github.min.css
+		build\content\App_Plugins\UmbMarkdown\css\simplemde.min.css = build\content\App_Plugins\UmbMarkdown\css\simplemde.min.css
+		build\content\App_Plugins\UmbMarkdown\css\umbmarkdown.css = build\content\App_Plugins\UmbMarkdown\css\umbmarkdown.css
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "fonts", "fonts", "{4CCA7133-37AE-474E-BA62-206BC659FBAB}"
+	ProjectSection(SolutionItems) = preProject
+		build\content\App_Plugins\UmbMarkdown\fonts\fontawesome-webfont.eot = build\content\App_Plugins\UmbMarkdown\fonts\fontawesome-webfont.eot
+		build\content\App_Plugins\UmbMarkdown\fonts\fontawesome-webfont.svg = build\content\App_Plugins\UmbMarkdown\fonts\fontawesome-webfont.svg
+		build\content\App_Plugins\UmbMarkdown\fonts\fontawesome-webfont.ttf = build\content\App_Plugins\UmbMarkdown\fonts\fontawesome-webfont.ttf
+		build\content\App_Plugins\UmbMarkdown\fonts\fontawesome-webfont.woff = build\content\App_Plugins\UmbMarkdown\fonts\fontawesome-webfont.woff
+		build\content\App_Plugins\UmbMarkdown\fonts\fontawesome-webfont.woff2 = build\content\App_Plugins\UmbMarkdown\fonts\fontawesome-webfont.woff2
+		build\content\App_Plugins\UmbMarkdown\fonts\FontAwesome.otf = build\content\App_Plugins\UmbMarkdown\fonts\FontAwesome.otf
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "js", "js", "{6AB630A4-3960-49F5-B9BE-B707369D6CDF}"
+	ProjectSection(SolutionItems) = preProject
+		build\content\App_Plugins\UmbMarkdown\js\highlight.min.js = build\content\App_Plugins\UmbMarkdown\js\highlight.min.js
+		build\content\App_Plugins\UmbMarkdown\js\simplemde.min.js = build\content\App_Plugins\UmbMarkdown\js\simplemde.min.js
+		build\content\App_Plugins\UmbMarkdown\js\umbmarkdown.controller.js = build\content\App_Plugins\UmbMarkdown\js\umbmarkdown.controller.js
+		build\content\App_Plugins\UmbMarkdown\js\umbmarkdown.directive.js = build\content\App_Plugins\UmbMarkdown\js\umbmarkdown.directive.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "views", "views", "{FE8FE537-3B98-4D5C-B9B9-5D1308273BB7}"
+	ProjectSection(SolutionItems) = preProject
+		build\content\App_Plugins\UmbMarkdown\views\umbmarkdown.directive.html = build\content\App_Plugins\UmbMarkdown\views\umbmarkdown.directive.html
+		build\content\App_Plugins\UmbMarkdown\views\umbmarkdown.html = build\content\App_Plugins\UmbMarkdown\views\umbmarkdown.html
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{F141F059-D40C-4BAB-84F0-E8389384AC7C}"
+	ProjectSection(SolutionItems) = preProject
+		UmbMarkdown.nuspec = UmbMarkdown.nuspec
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B7BEE649-4637-496C-930A-5C7575F84085}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7BEE649-4637-496C-930A-5C7575F84085}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7BEE649-4637-496C-930A-5C7575F84085}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7BEE649-4637-496C-930A-5C7575F84085}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{904F119F-86C2-4FBA-AE57-1D14EC1D5704} = {95F19912-24D4-4FEE-9EC6-DF3BFC70CAED}
+		{4CCA7133-37AE-474E-BA62-206BC659FBAB} = {95F19912-24D4-4FEE-9EC6-DF3BFC70CAED}
+		{6AB630A4-3960-49F5-B9BE-B707369D6CDF} = {95F19912-24D4-4FEE-9EC6-DF3BFC70CAED}
+		{FE8FE537-3B98-4D5C-B9B9-5D1308273BB7} = {95F19912-24D4-4FEE-9EC6-DF3BFC70CAED}
+	EndGlobalSection
+EndGlobal

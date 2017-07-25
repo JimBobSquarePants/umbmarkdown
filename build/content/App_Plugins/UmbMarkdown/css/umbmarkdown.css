@@ -1,0 +1,32 @@
+﻿.umbmarkdown {
+    position: relative;
+    padding-top: 50px;
+}
+
+    .umbmarkdown .editor-toolbar {
+        position: fixed;
+        margin-top: -50px;
+        z-index: 2;
+        background-color: #e9e9eb;
+        border: none;
+        opacity: 1;
+    }
+
+[preview="true"] .umbmarkdown .editor-toolbar {
+    position: absolute;
+}
+
+.umbmarkdown .editor-toolbar a {
+    color: #000 !important
+}
+
+.umbmarkdown .editor-toolbar.disabled-for-preview a:not(.no-disable) {
+    pointer-events: none;
+    opacity: .5;
+    border-color: transparent;
+    text-shadow: inherit;
+}
+
+.umbmarkdown .editor-preview.editor-preview-active a {
+    color: #00aea2;
+}
