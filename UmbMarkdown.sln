@@ -44,6 +44,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "views", "views", "{FE8FE537
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{F141F059-D40C-4BAB-84F0-E8389384AC7C}"
 	ProjectSection(SolutionItems) = preProject
+		appveyor.yml = appveyor.yml
+		README.md = README.md
 		UmbMarkdown.nuspec = UmbMarkdown.nuspec
 	EndProjectSection
 EndProject
