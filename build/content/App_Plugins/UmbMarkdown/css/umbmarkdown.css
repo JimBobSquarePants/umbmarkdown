@@ -2,15 +2,22 @@
     position: relative;
 }
 
+    /* Default layout */
     .umbmarkdown .editor-toolbar {
         position: sticky;
-        top: 80px;
+        top: 30px;
         z-index: 2;
         background-color: #e9e9eb;
         border: none;
         opacity: 1;
     }
 
+    /* Buffered to handle grid editors extra fixed pane */
+    .umbmarkdown .bufferstick + .editor-toolbar {
+        top: 70px;
+    }
+
+    /* Non sticky support and preview mode */
     .umbmarkdown .nostick + .editor-toolbar,
     [preview="true"] .umbmarkdown .editor-toolbar {
         position: relative;
@@ -30,4 +37,8 @@
 
     .umbmarkdown .editor-preview.editor-preview-active a {
         color: #00aea2;
+    }
+
+    .umbmarkdown table {
+        margin: 10px 0;
     }

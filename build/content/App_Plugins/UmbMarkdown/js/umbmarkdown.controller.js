@@ -3,7 +3,7 @@
 
         // This is copied directly from the SME source since the method is not publicly exposed
         // https://github.com/sparksuite/simplemde-markdown-editor/blob/6abda7ab68cc20f4aca870eb243747951b90ab04/src/js/simplemde.js#L791
-        var replaceSelection = function (cm, active, startEnd, url) {
+        var replaceSelection = function (cm, active, startEnd, url, name) {
             if (/editor-preview-active/.test(cm.getWrapperElement().lastChild.className))
                 return;
 
@@ -13,7 +13,7 @@
             var startPoint = cm.getCursor("start");
             var endPoint = cm.getCursor("end");
             if (url) {
-                // 1: Added to original
+                // 1: Added to original to allow insertion of HTML links with rel attributes
                 start = start.replace("#url#", url); // 1
                 end = end.replace("#url#", url);
             }
@@ -27,7 +27,29 @@
                 });
             } else {
                 text = cm.getSelection();
-                cm.replaceSelection(start + text + end);
+
+                // Altered from the original to correctly wrap alt text for images
+                if (text) {
+                    start = start.replace("#alt#", text);
+
+                    // Images only; Links won't match this.
+                    if (start.indexOf(text) !== -1) {
+                        cm.replaceSelection(start + end);
+                    } else {
+
+                        // Links
+                        if (name) {
+                            // We replace our already inserted name with the text value
+                            start = start.replace(name, text);
+                            cm.replaceSelection(start + end);
+                        } else {
+                            cm.replaceSelection(start + text + end);
+                        }
+                    }
+                } else {
+                    start = start.replace("#alt#", "");
+                    cm.replaceSelection(start + text + end);
+                }
 
                 startPoint.ch += start.length;
                 if (startPoint !== endPoint) {
@@ -46,11 +68,13 @@
             $scope.mediaPickerOverlay.disableFolderSelect = true;
 
             $scope.mediaPickerOverlay.submit = function (model) {
-                var selectedImagePath = model.selectedImages[0].image;
-                callback(selectedImagePath);
-
                 $scope.mediaPickerOverlay.show = false;
                 $scope.mediaPickerOverlay = null;
+
+                if (model.selectedImages) {
+                    var selectedImagePath = model.selectedImages[0].image;
+                    callback(selectedImagePath);
+                }
             };
 
             $scope.mediaPickerOverlay.close = function () {
@@ -72,38 +96,41 @@
                 $scope.linkPickerOverlay.show = false;
                 $scope.linkPickerOverlay = null;
 
-                var target = model.target,
-                    href = target.url,
-                    name = target.name,
-                    external = target.target;
+                var target = model.target;
+                if (target) {
 
-                // We want to use the Udi. If it is set, we use it, else fallback to id, and finally to null
-                var hasUdi = target.udi ? true : false;
-                var id = hasUdi ? target.udi : (target.id ? target.id : null);
+                    var href = target.url,
+                        name = target.name,
+                        external = target.target;
 
-                //if we have an id, it must be a locallink:id, as long as the isMedia flag is not set
-                if (id && (window.angular.isUndefined(target.isMedia) || !target.isMedia)) {
-                    href = "/{localLink:" + id + "}";
+                    // We want to use the Udi. If it is set, we use it, else fallback to id, and finally to null
+                    var hasUdi = target.udi ? true : false;
+                    var id = hasUdi ? target.udi : (target.id ? target.id : null);
+
+                    //if we have an id, it must be a locallink:id, as long as the isMedia flag is not set
+                    if (id && (window.angular.isUndefined(target.isMedia) || !target.isMedia)) {
+                        href = "/{localLink:" + id + "}";
+                        callback(href, name, external);
+                        return;
+                    }
+
+                    // Is email and not //user@domain.com
+                    if (href.indexOf('@') > 0 && href.indexOf('//') === -1 && href.indexOf('mailto:') === -1) {
+                        href = 'mailto:' + href;
+                        callback(href, name, external);
+                        return;
+                    }
+
+                    // Is www. prefixed
+                    if (/^\s*www\./i.test(href)) {
+                        href = 'http://' + href;
+
+                        callback(href, name, external);
+                        return;
+                    }
+
                     callback(href, name, external);
-                    return;
                 }
-
-                // Is email and not //user@domain.com
-                if (href.indexOf('@') > 0 && href.indexOf('//') === -1 && href.indexOf('mailto:') === -1) {
-                    href = 'mailto:' + href;
-                    callback(href, name, external);
-                    return;
-                }
-
-                // Is www. prefixed
-                if (/^\s*www\./i.test(href)) {
-                    href = 'http://' + href;
-
-                    callback(href, name, external);
-                    return;
-                }
-
-                callback(href, name, external);
             };
 
             $scope.linkPickerOverlay.close = function () {
@@ -140,6 +167,7 @@
                 var options = editor.options,
                     insertText = options.insertTexts.link;
 
+                // Handle names and rel attributes
                 if (name) {
                     if (external) {
                         insertText = ["<a href=\"#url#\" target=\"_blank\">" + name + "</a>", ""];
@@ -151,7 +179,7 @@
                 }
 
                 var stat = editor.getState();
-                replaceSelection(editor.codemirror, stat.link, insertText, url);
+                replaceSelection(editor.codemirror, stat.link, insertText, url, name);
                 return true;
             };
 

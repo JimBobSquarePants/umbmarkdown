@@ -16,10 +16,17 @@
 
         var link = function ($scope, elem) {
 
-            var textarea = elem.find("textarea")[0];
+            var textarea = elem.find("textarea")[0],
+                supportsSticky = featureTest("position", "sticky");
 
-            if (!featureTest("position", "sticky")) {
+            // Handle browsers that don't support position:sticky so that our toolbar is in the correct place.
+            if (!supportsSticky) {
                 textarea.className += " nostick";
+            }
+
+            // The Umbraco grid adds a second toolbar to the top of the section
+            if (supportsSticky && document.querySelectorAll(".-umb-sticky-bar")) {
+                textarea.className += " bufferstick";
             }
 
             // There's a race condition going on here. The editor is initializing before ngBind has kicked in.
@@ -35,6 +42,9 @@
                 forceSync: true,
                 renderingConfig: {
                     codeSyntaxHighlighting: true
+                },
+                insertTexts: {
+                    image: ["![#alt#](", "#url#)"],
                 },
                 toolbar: [
                     "bold", "italic", "heading", "|",
