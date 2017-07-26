@@ -25,7 +25,7 @@
             }
 
             // The Umbraco grid adds a second toolbar to the top of the section
-            if (supportsSticky && document.querySelectorAll(".-umb-sticky-bar")) {
+            if (supportsSticky && document.querySelectorAll(".-umb-sticky-bar").length) {
                 textarea.className += " bufferstick";
             }
 
