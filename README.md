@@ -1,8 +1,10 @@
-# <img src="build/assets/logo/umbmarkdown-64.png" width="52" height="52"/> UmbMarkdown
+# <img src="https://github.com/JimBobSquarePants/umbmarkdown/raw/develop/build/assets/logo/umbmarkdown-64.png" width="52" height="52" alt="UmbrMarkdown Logo"/> UmbMarkdown
 
 This repository contains a Markdown property editor for Umbraco designed to supersede the core one.
 
 Supports Github Flavoured Markdown and improves upon the existing core Markdown editor in many ways.
+
+<img src="https://github.com/JimBobSquarePants/umbmarkdown/raw/develop/build/assets/docs/umbmarkdown.gif" alt="UmbrMarkdown Demo"/>
 
 ### Consuming the Solution
 
