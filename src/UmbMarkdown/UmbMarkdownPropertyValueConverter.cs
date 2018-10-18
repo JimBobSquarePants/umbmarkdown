@@ -53,7 +53,19 @@ namespace UmbMarkdown
         /// <inheritdoc/>
         public override object ConvertSourceToObject(PublishedPropertyType propertyType, object source, bool preview)
         {
-            return new HtmlString(source == null ? string.Empty : Markdown.ToHtml(source.ToString(), this.pipeline));
+            if (source == null)
+            {
+                return new HtmlString(string.Empty);
+            }
+
+            var result = Markdown.ToHtml(source.ToString(), this.pipeline);
+            if (UmbracoContext.Current != null)
+            {
+                result = TemplateUtilities.ParseInternalLinks(result);
+                result = TemplateUtilities.ResolveUrlsFromTextString(result);
+            }
+
+            return new HtmlString(result);
         }
 
         /// <inheritdoc/>
